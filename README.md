@@ -14,3 +14,5 @@ Make sure everything is in the same folder so the directory stuff won't get mess
 
 Google Colab link is here (makes it much faster)
 https://colab.research.google.com/drive/10v2UjMlSLwKmhrymMe7F5BJ09eU1SAhZ#scrollTo=gRJcETgswK20
+
+Credits to https://github.com/huggingface/pytorch-pretrained-BERT for Pytorch BERT implementation.

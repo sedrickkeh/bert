@@ -72,6 +72,8 @@ def main():
     parser.add_argument('--seed', type=int, default=42)
     parser.add_argument('--gradient_accumulation_steps', type=int, default=1)
     
+    parser.add_argument('--mode', default="ALL", type=str)
+
     args = parser.parse_args()
 
 
@@ -105,7 +107,7 @@ def main():
     if not os.path.exists(args.output_dir):
         os.makedirs(args.output_dir)
 
-    processor = PersonalityProcessor()
+    processor = PersonalityProcessor(args.mode)
     label_list = processor.get_labels(args.data_dir)
     print(label_list)
     num_labels = len(label_list)

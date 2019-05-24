@@ -41,6 +41,10 @@ class DataProcessor(object):
             return lines
 
 class PersonalityProcessor(DataProcessor):
+	def __init__(self, mode):
+		self.mode = mode
+		self.mode = self.mode.upper()
+
     def get_train_examples(self, data_dir):
         return self.create_examples(self._read_tsv(os.path.join(data_dir, "train.csv")), "train")
 
@@ -64,5 +68,11 @@ class PersonalityProcessor(DataProcessor):
             label = line[0]
             label = re.sub("[^a-zA-Z]", '', label)
             label = label.lower()
+            
+            if (self.mode == "E/I" or self.mode == "I/E"): label = label[0]
+            elif (self.mode == "N/S" or self.mode = "S/N"): label = label[1]
+            elif (self.mode == "T/F" or self.mode = "F/T"): label = label[2]
+            elif (self.mode == "J/P" or self.mode = "P/J"): label = label[3]
+
             examples.append(InputExample(guid=id_num, text=text, label=label))
         return examples
