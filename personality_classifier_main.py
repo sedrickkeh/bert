@@ -194,7 +194,7 @@ def main():
         eval_examples = processor.get_dev_examples(args.data_dir)
         eval_features = convert_examples_to_features(eval_examples, label_list, args.max_seq_length, tokenizer)
         eval_dataloader = get_eval_dataloader(args, eval_features)
-        all_label_ids = get_label_ids(eval_features)
+        all_label_ids = get_label_ids(args, eval_features)
 
         model.eval()
         eval_loss = 0
