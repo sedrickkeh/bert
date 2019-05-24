@@ -39,7 +39,7 @@ from pytorch_pretrained_bert.modeling import BertForSequenceClassification, Bert
 from pytorch_pretrained_bert.tokenization import BertTokenizer
 from pytorch_pretrained_bert.optimization import BertAdam, WarmupLinearSchedule
 
-import compute_metrics
+from compute_metrics import compute_metrics
 from data_processor import InputExample, DataProcessor, PersonalityProcessor
 from features import convert_examples_to_features
 from dataloader import get_train_dataloader, get_eval_dataloader, get_label_ids

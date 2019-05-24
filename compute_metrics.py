@@ -1,3 +1,3 @@
 def compute_metrics(preds, labels):
-    return (preds == labels).mean()
+    return {"acc": (preds == labels).mean()}
 
