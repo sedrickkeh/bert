@@ -1,6 +1,7 @@
 import os
 import csv
 import sys
+import re
 
 class InputExample(object):
     """A single training/test example for simple sequence classification."""
@@ -61,5 +62,7 @@ class PersonalityProcessor(DataProcessor):
             id_num = "%s-%s" % (set_type, i)
             text = line[1]
             label = line[0]
+            label = re.sub("[^a-zA-Z]", '', label)
+            label = label.lower()
             examples.append(InputExample(guid=id_num, text=text, label=label))
         return examples

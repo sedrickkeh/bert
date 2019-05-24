@@ -107,6 +107,7 @@ def main():
 
     processor = PersonalityProcessor()
     label_list = processor.get_labels(args.data_dir)
+    print(label_list)
     num_labels = len(label_list)
 
     tokenizer = BertTokenizer.from_pretrained(args.bert_model, do_lower_case=args.do_lower_case)
