@@ -32,7 +32,7 @@ class DataProcessor(object):
     def _read_tsv(cls, input_file, quotechar=None):
         """Reads a tab separated value file."""
         with open(input_file, "r", encoding="utf-8") as f:
-            reader = csv.reader(f, delimiter="\t", quotechar=quotechar)
+            reader = csv.reader(f, quotechar=quotechar)
             lines = []
             for line in reader:
                 if sys.version_info[0] == 2:
@@ -71,6 +71,7 @@ class PersonalityProcessor(DataProcessor):
             label = line[0]
             label = re.sub("[^a-zA-Z]", '', label)
             label = label.lower()
+            if (len(label) > 4): continue
             
             if (self.mode == "E/I" or self.mode == "I/E"): label = label[0]
             elif (self.mode == "N/S" or self.mode == "S/N"): label = label[1]

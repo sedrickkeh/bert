@@ -24,8 +24,15 @@ def create_combined_dataset(lines):
 	return train, dev
 
 def dataset_exporter(train, dev):
-
+	with open('train.csv', 'w', newline='') as csvFile:
+		writer = csv.writer(csvFile)
+		writer.writerows(train)
+	csvFile.close()
+	with open('dev.csv', 'w', newline='') as csvFile:
+		writer = csv.writer(csvFile)
+		writer.writerows(dev)
+	csvFile.close()
 
 lines = combine("./dataset")
 train, dev = create_combined_dataset(lines)
-dataset_explorer(train, dev)
+dataset_exporter(train, dev)
