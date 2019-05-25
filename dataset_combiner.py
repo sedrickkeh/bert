@@ -21,8 +21,11 @@ def combine(directory):
 
 def create_combined_dataset(lines):
 	train, dev = train_test_split(lines, test_size = 0.15)
-	print(len(train))
-	print(len(dev))
+	return train, dev
+
+def dataset_exporter(train, dev):
+
 
 lines = combine("./dataset")
-create_combined_dataset(lines)
+train, dev = create_combined_dataset(lines)
+dataset_explorer(train, dev)
