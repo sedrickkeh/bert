@@ -3,3 +3,4 @@ dataset
 env
 __pycache__/
 *.py[cod]
+sametest.py

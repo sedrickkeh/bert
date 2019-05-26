@@ -13,7 +13,7 @@ def combine(directory):
 			for line in reader:
 				if sys.version_info[0] == 2:
 					line = list(unicode(cell, 'utf-8') for cell in line)
-				if len(line) == 2 and len(line[1]) > 50:
+				if len(line) == 2 and len(line[1]) > 50 and line not in lines:
 					lines.append(line)
 					cntr += 1
 				if cntr >= 5000: break
