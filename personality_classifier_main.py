@@ -226,24 +226,22 @@ def main():
                     preds[0], logits.detach().cpu().numpy(), axis=0)
 
         eval_loss = eval_loss / nb_eval_steps
-        print(preds)
-        print(len(preds))
-        print(len(preds[0]))
+        
         preds = preds[0]
         preds = np.argmax(preds, axis=1)
         
-        print(preds)
-        print(preds.shape)
-        result = compute_metrics(preds, all_label_ids.numpy())
+        result = compute_metrics(preds, all_label_ids.numpy(), label_list)
         loss = tr_loss/global_step if args.do_train else None
 
         result['eval_loss'] = eval_loss
         result['global_step'] = global_step
         result['loss'] = loss
 
+        print(result)
+        
         output_eval_file = os.path.join(args.output_dir, "eval_results.txt")
         with open(output_eval_file, "w") as writer:
-            for key in sorted(result.keys()):
+            for key in result.keys():
                 writer.write("%s = %s\n" % (key, str(result[key])))
 
 
