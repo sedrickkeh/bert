@@ -4,3 +4,4 @@ env
 __pycache__/
 *.py[cod]
 sametest.py
+.DS_Store
