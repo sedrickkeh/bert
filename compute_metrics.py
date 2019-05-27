@@ -40,7 +40,7 @@ def mbti_accuracy(preds, labels):
 
 def convert_to_types(preds, labels, label_list):
 	label_map = {}
-	for i in range(16):
+	for i in range(len(label_list)):
 		label_map[i] = label_list[i]
 
 	new_preds = []
