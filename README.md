@@ -1,6 +1,6 @@
 # Myers-Briggs Personality Classification and Personality-Specific Language Generation Using Pretrained Language Models
 
-Make sure you have pytorch installed, then do
+To install BERT, make sure you have pytorch installed, then call
 ```
 pip install pytorch-pretrained-bert
 ```
